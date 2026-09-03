@@ -1,0 +1,1227 @@
+<title>کاری‌جاب</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap');
+
+:root {
+  --bg: #F6F4EF;
+  --bg-card: #FFFFFF;
+  --surface: #EDE9E1;
+  --text: #0C2D48;
+  --text-muted: #4A6E82;
+  --text-faint: #8AABB8;
+  --border: #D8D2C6;
+  --accent: #E8950F;
+  --accent-dark: #C47A08;
+  --navy: #0C2D48;
+  --navy-2: #1A4A68;
+  --ink: #091E30;
+  --ghost: rgba(12,45,72,0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #091E30;
+    --bg-card: #0F2D44;
+    --surface: #0C2540;
+    --text: #EDE9E1;
+    --text-muted: #8AABB8;
+    --text-faint: #4A6E82;
+    --border: #1A3D58;
+    --navy: #EDE9E1;
+    --navy-2: #C8DDE8;
+    --ink: #F6F4EF;
+    --ghost: rgba(232,149,15,0.04);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #091E30;
+  --bg-card: #0F2D44;
+  --surface: #0C2540;
+  --text: #EDE9E1;
+  --text-muted: #8AABB8;
+  --text-faint: #4A6E82;
+  --border: #1A3D58;
+  --navy: #EDE9E1;
+  --navy-2: #C8DDE8;
+  --ink: #F6F4EF;
+  --ghost: rgba(232,149,15,0.04);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  direction: rtl;
+  font-family: 'Vazirmatn', sans-serif;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* NAV */
+nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  padding: 0 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 24px;
+}
+
+.nav-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--text);
+  text-decoration: none;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+}
+.nav-logo span { color: var(--accent); }
+
+.nav-links {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  align-items: center;
+}
+.nav-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 0.15s;
+}
+.nav-links a:hover { color: var(--text); }
+
+.nav-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.btn-ghost {
+  padding: 8px 20px;
+  border: 1.5px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.btn-ghost:hover { border-color: var(--text-muted); background: var(--ghost); }
+
+.btn-primary {
+  padding: 8px 20px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-primary:hover { background: var(--accent-dark); }
+
+/* HERO */
+.hero {
+  position: relative;
+  background: #0C2D48;
+  overflow: hidden;
+  padding: 80px 40px 72px;
+  text-align: center;
+}
+
+.hero-ghost {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  user-select: none;
+  overflow: hidden;
+}
+.hero-ghost-text {
+  font-size: clamp(160px, 28vw, 360px);
+  font-weight: 900;
+  color: rgba(255,255,255,0.04);
+  letter-spacing: -0.04em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hero-inner {
+  position: relative;
+  max-width: 760px;
+  margin: 0 auto;
+}
+
+.hero-label {
+  display: inline-block;
+  padding: 4px 14px;
+  border-radius: 100px;
+  border: 1px solid rgba(232,149,15,0.4);
+  color: var(--accent);
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  margin-bottom: 24px;
+}
+
+.hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  color: #EDE9E1;
+  line-height: 1.2;
+  text-wrap: balance;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero-sub {
+  font-size: 1.05rem;
+  color: rgba(200,221,232,0.8);
+  font-weight: 400;
+  margin-bottom: 40px;
+  text-wrap: balance;
+}
+
+.search-box {
+  display: flex;
+  gap: 0;
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 32px rgba(0,0,0,0.25);
+  max-width: 660px;
+  margin: 0 auto 40px;
+}
+
+.search-box input {
+  flex: 1;
+  border: none;
+  outline: none;
+  padding: 16px 20px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  color: #0C2D48;
+  background: transparent;
+  min-width: 0;
+}
+.search-box input::placeholder { color: #8AABB8; }
+
+.search-divider {
+  width: 1px;
+  background: #E0DDD6;
+  margin: 12px 0;
+}
+
+.search-box select {
+  border: none;
+  outline: none;
+  padding: 16px 20px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  color: #4A6E82;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+  min-width: 140px;
+}
+
+.search-btn {
+  padding: 0 28px;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+  white-space: nowrap;
+}
+.search-btn:hover { background: var(--accent-dark); }
+
+.hero-tags {
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+.hero-tag {
+  padding: 6px 14px;
+  border-radius: 100px;
+  background: rgba(255,255,255,0.08);
+  color: rgba(200,221,232,0.75);
+  font-size: 0.82rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.hero-tag:hover { background: rgba(255,255,255,0.14); }
+
+/* STATS STRIP */
+.stats-strip {
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  padding: 28px 40px;
+}
+.stats-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 0;
+  justify-content: space-around;
+  align-items: center;
+}
+.stat {
+  text-align: center;
+  padding: 0 32px;
+  border-left: 1px solid var(--border);
+}
+.stat:last-child { border-left: none; }
+.stat-num {
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.03em;
+  line-height: 1;
+  margin-bottom: 4px;
+}
+.stat-num span { color: var(--accent); }
+.stat-label {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* CATEGORIES */
+.section {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 72px 40px;
+}
+
+.section-header {
+  margin-bottom: 36px;
+}
+.section-eyebrow {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+.section-title {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+  line-height: 1.2;
+}
+.section-sub {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+}
+
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+
+.cat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 20px;
+  cursor: pointer;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: border-color 0.15s, box-shadow 0.15s, transform 0.15s;
+}
+.cat-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 20px rgba(232,149,15,0.1);
+  transform: translateY(-2px);
+}
+
+.cat-icon {
+  font-size: 1.6rem;
+  line-height: 1;
+}
+.cat-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.cat-count {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+/* JOBS SECTION */
+.jobs-layout {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 32px;
+  align-items: start;
+}
+
+.jobs-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.job-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px 24px;
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.job-card:hover {
+  border-color: var(--text-muted);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+}
+.job-card.featured {
+  border-color: rgba(232,149,15,0.3);
+  background: linear-gradient(135deg, var(--bg-card) 0%, rgba(232,149,15,0.03) 100%);
+}
+.job-card.featured:hover { border-color: var(--accent); }
+
+.job-logo {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  flex-shrink: 0;
+  border: 1px solid var(--border);
+}
+
+.job-info { flex: 1; min-width: 0; }
+
+.job-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.job-company {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-weight: 500;
+  margin-bottom: 10px;
+}
+
+.job-meta {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.job-tag {
+  padding: 3px 10px;
+  border-radius: 100px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  background: var(--surface);
+}
+.job-tag.remote { color: #2C7A4B; border-color: rgba(44,122,75,0.25); background: rgba(44,122,75,0.07); }
+.job-tag.salary { color: var(--text); font-weight: 700; }
+
+.job-time {
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  flex-shrink: 0;
+  text-align: left;
+  white-space: nowrap;
+}
+
+/* SIDEBAR */
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.sidebar-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 22px;
+}
+.sidebar-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.filter-group { display: flex; flex-direction: column; gap: 10px; }
+.filter-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.88rem;
+  color: var(--text-muted);
+  cursor: pointer;
+}
+.filter-item input[type="checkbox"] {
+  accent-color: var(--accent);
+  width: 15px;
+  height: 15px;
+}
+.filter-count {
+  margin-right: auto;
+  font-size: 0.78rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.alert-box {
+  background: linear-gradient(135deg, #0C2D48 0%, #1A4A68 100%);
+  border-radius: 12px;
+  padding: 22px;
+  color: #EDE9E1;
+}
+.alert-title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+.alert-sub {
+  font-size: 0.82rem;
+  color: rgba(200,221,232,0.75);
+  margin-bottom: 16px;
+  line-height: 1.5;
+}
+.alert-input {
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.15);
+  background: rgba(255,255,255,0.08);
+  color: #EDE9E1;
+  font-family: inherit;
+  font-size: 0.88rem;
+  outline: none;
+  margin-bottom: 10px;
+  direction: rtl;
+}
+.alert-input::placeholder { color: rgba(200,221,232,0.4); }
+.alert-btn {
+  width: 100%;
+  padding: 10px;
+  background: var(--accent);
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 0.88rem;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.alert-btn:hover { background: var(--accent-dark); }
+
+/* EMPLOYER SECTION */
+.employer-section {
+  background: #0C2D48;
+  padding: 72px 40px;
+}
+.employer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 64px;
+  align-items: center;
+}
+.employer-content { }
+.employer-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+.employer-title {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  font-weight: 800;
+  color: #EDE9E1;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  text-wrap: balance;
+  margin-bottom: 16px;
+}
+.employer-sub {
+  font-size: 0.95rem;
+  color: rgba(200,221,232,0.7);
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+.employer-actions { display: flex; gap: 12px; }
+.btn-accent {
+  padding: 12px 28px;
+  background: var(--accent);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.btn-accent:hover { background: var(--accent-dark); }
+.btn-outline-light {
+  padding: 12px 28px;
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.2);
+  border-radius: 10px;
+  color: #EDE9E1;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s, background 0.15s;
+}
+.btn-outline-light:hover { border-color: rgba(255,255,255,0.4); background: rgba(255,255,255,0.05); }
+
+.employer-features {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.employer-feat {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+.feat-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: rgba(232,149,15,0.15);
+  border: 1px solid rgba(232,149,15,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+.feat-text h4 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #EDE9E1;
+  margin-bottom: 4px;
+}
+.feat-text p {
+  font-size: 0.82rem;
+  color: rgba(200,221,232,0.6);
+  line-height: 1.5;
+}
+
+/* HOW IT WORKS */
+.how-bg {
+  background: var(--surface);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+.steps-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 24px;
+}
+.step {
+  text-align: center;
+  padding: 8px;
+}
+.step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--bg-card);
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin: 0 auto 16px;
+  font-variant-numeric: tabular-nums;
+}
+.step h3 {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.step p {
+  font-size: 0.82rem;
+  color: var(--text-muted);
+  line-height: 1.6;
+}
+
+/* COMPANIES */
+.companies-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.company-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--bg-card);
+  cursor: pointer;
+  transition: border-color 0.15s;
+  text-decoration: none;
+}
+.company-chip:hover { border-color: var(--text-muted); }
+.company-chip-logo {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: var(--surface);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+}
+.company-chip-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.company-chip-count {
+  font-size: 0.75rem;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+/* FOOTER */
+footer {
+  background: var(--ink);
+  padding: 52px 40px 32px;
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 28px;
+}
+.footer-brand {}
+.footer-logo {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #EDE9E1;
+  margin-bottom: 12px;
+  display: block;
+}
+.footer-logo span { color: var(--accent); }
+.footer-desc {
+  font-size: 0.82rem;
+  color: rgba(200,221,232,0.5);
+  line-height: 1.7;
+}
+.footer-col h5 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #EDE9E1;
+  margin-bottom: 16px;
+  letter-spacing: 0.04em;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-links a {
+  font-size: 0.82rem;
+  color: rgba(200,221,232,0.5);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: rgba(200,221,232,0.85); }
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.78rem;
+  color: rgba(200,221,232,0.35);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { padding: 56px 20px 52px; }
+  .section { padding: 52px 20px; }
+  .categories-grid { grid-template-columns: repeat(2, 1fr); }
+  .jobs-layout { grid-template-columns: 1fr; }
+  .sidebar { display: none; }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .employer-inner { grid-template-columns: 1fr; gap: 40px; }
+  .footer-top { grid-template-columns: 1fr 1fr; gap: 28px; }
+  .stats-inner { flex-wrap: wrap; gap: 20px; }
+  .stat { border-left: none; padding: 0; }
+  footer { padding: 40px 20px 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { transition: none !important; transform: none !important; }
+}
+</style>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">کاری<span>جاب</span></a>
+  <ul class="nav-links">
+    <li><a href="#">جستجوی شغل</a></li>
+    <li><a href="#">شرکت‌ها</a></li>
+    <li><a href="#">رزومه‌ساز</a></li>
+    <li><a href="#">راهنمای شغلی</a></li>
+    <li><a href="#">کارفرمایان</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="btn-ghost">ورود</button>
+    <button class="btn-primary">ثبت رزومه</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-ghost" aria-hidden="true">
+    <span class="hero-ghost-text">فرصت</span>
+  </div>
+  <div class="hero-inner">
+    <div class="hero-label">بیش از ۴۲،۰۰۰ فرصت شغلی فعال</div>
+    <h1>شغل رویاهایت را<br>از اینجا پیدا کن <em>.</em></h1>
+    <p class="hero-sub">از استارتاپ‌های نوآور تا شرکت‌های بزرگ — ما پل میان استعداد و فرصتیم.</p>
+    <div class="search-box">
+      <input type="text" placeholder="عنوان شغل، مهارت یا شرکت…" />
+      <div class="search-divider"></div>
+      <select>
+        <option>همه شهرها</option>
+        <option>تهران</option>
+        <option>اصفهان</option>
+        <option>مشهد</option>
+        <option>شیراز</option>
+        <option>دورکاری</option>
+      </select>
+      <button class="search-btn">جستجو</button>
+    </div>
+    <div class="hero-tags">
+      <span class="hero-tag">برنامه‌نویسی</span>
+      <span class="hero-tag">طراحی UI/UX</span>
+      <span class="hero-tag">بازاریابی دیجیتال</span>
+      <span class="hero-tag">مالی و حسابداری</span>
+      <span class="hero-tag">منابع انسانی</span>
+      <span class="hero-tag">دورکاری</span>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat">
+      <div class="stat-num">۴۲<span>K+</span></div>
+      <div class="stat-label">آگهی شغلی فعال</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">۸،۶۰۰<span>+</span></div>
+      <div class="stat-label">شرکت عضو</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">۱٫۲<span>M</span></div>
+      <div class="stat-label">کاربر ثبت‌نامی</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">۹۴<span>٪</span></div>
+      <div class="stat-label">رضایت کارجویان</div>
+    </div>
+  </div>
+</div>
+
+<!-- CATEGORIES -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">دسته‌بندی‌ها</div>
+      <h2 class="section-title">کدام حوزه دنبال کار می‌گردید؟</h2>
+    </div>
+    <div class="categories-grid">
+      <a href="#" class="cat-card">
+        <div class="cat-icon">💻</div>
+        <div class="cat-name">فناوری و IT</div>
+        <div class="cat-count">۱۲،۴۸۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">🎨</div>
+        <div class="cat-name">طراحی و خلاقیت</div>
+        <div class="cat-count">۴،۲۳۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">📊</div>
+        <div class="cat-name">مالی و حسابداری</div>
+        <div class="cat-count">۳،۸۷۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">📣</div>
+        <div class="cat-name">بازاریابی و فروش</div>
+        <div class="cat-count">۵،۶۱۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">🏥</div>
+        <div class="cat-name">پزشکی و بهداشت</div>
+        <div class="cat-count">۲،۹۴۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">⚙️</div>
+        <div class="cat-name">مهندسی و صنعت</div>
+        <div class="cat-count">۶،۱۸۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">📚</div>
+        <div class="cat-name">آموزش و پژوهش</div>
+        <div class="cat-count">۱،۸۵۰ آگهی</div>
+      </a>
+      <a href="#" class="cat-card">
+        <div class="cat-icon">🏗️</div>
+        <div class="cat-name">ساختمان و معماری</div>
+        <div class="cat-count">۲،۱۴۰ آگهی</div>
+      </a>
+    </div>
+  </div>
+</div>
+
+<!-- JOBS -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">فرصت‌های برگزیده</div>
+      <h2 class="section-title">آگهی‌های جدید و ویژه</h2>
+      <p class="section-sub">به‌روز شده در آخرین ساعت</p>
+    </div>
+    <div class="jobs-layout">
+      <div class="jobs-list">
+
+        <a href="#" class="job-card featured">
+          <div class="job-logo">🦁</div>
+          <div class="job-info">
+            <div class="job-title">توسعه‌دهنده ارشد فرانت‌اند (React)</div>
+            <div class="job-company">دیجی‌کالا — تهران</div>
+            <div class="job-meta">
+              <span class="job-tag remote">دورکاری</span>
+              <span class="job-tag">تمام‌وقت</span>
+              <span class="job-tag salary">۵۰–۸۰ میلیون</span>
+            </div>
+          </div>
+          <div class="job-time">۲ ساعت پیش</div>
+        </a>
+
+        <a href="#" class="job-card">
+          <div class="job-logo">🚀</div>
+          <div class="job-info">
+            <div class="job-title">مدیر محصول (Product Manager)</div>
+            <div class="job-company">اسنپ‌فود — تهران</div>
+            <div class="job-meta">
+              <span class="job-tag">تمام‌وقت</span>
+              <span class="job-tag salary">۷۰–۱۰۰ میلیون</span>
+            </div>
+          </div>
+          <div class="job-time">۵ ساعت پیش</div>
+        </a>
+
+        <a href="#" class="job-card">
+          <div class="job-logo">🏦</div>
+          <div class="job-info">
+            <div class="job-title">کارشناس داده و هوش مصنوعی</div>
+            <div class="job-company">بانک پارسیان — تهران</div>
+            <div class="job-meta">
+              <span class="job-tag">تمام‌وقت</span>
+              <span class="job-tag">سابقه ۳+ سال</span>
+              <span class="job-tag salary">۶۰–۹۰ میلیون</span>
+            </div>
+          </div>
+          <div class="job-time">دیروز</div>
+        </a>
+
+        <a href="#" class="job-card">
+          <div class="job-logo">🎯</div>
+          <div class="job-info">
+            <div class="job-title">طراح ارشد UX/UI</div>
+            <div class="job-company">تپسی — تهران</div>
+            <div class="job-meta">
+              <span class="job-tag remote">دورکاری</span>
+              <span class="job-tag">تمام‌وقت</span>
+              <span class="job-tag salary">۴۵–۷۰ میلیون</span>
+            </div>
+          </div>
+          <div class="job-time">دیروز</div>
+        </a>
+
+        <a href="#" class="job-card">
+          <div class="job-logo">💊</div>
+          <div class="job-info">
+            <div class="job-title">پزشک عمومی — کلینیک دریافت بیمار</div>
+            <div class="job-company">کلینیک نور — اصفهان</div>
+            <div class="job-meta">
+              <span class="job-tag">تمام‌وقت</span>
+              <span class="job-tag salary">۸۰–۱۲۰ میلیون</span>
+            </div>
+          </div>
+          <div class="job-time">۲ روز پیش</div>
+        </a>
+
+        <a href="#" class="job-card">
+          <div class="job-logo">📦</div>
+          <div class="job-info">
+            <div class="job-title">مسئول تامین و زنجیره تامین</div>
+            <div class="job-company">مپنا — تهران</div>
+            <div class="job-meta">
+              <span class="job-tag">تمام‌وقت</span>
+              <span class="job-tag">کارشناسی</span>
+              <span class="job-tag salary">۴۰–۵۵ میلیون</span>
+            </div>
+          </div>
+          <div class="job-time">۳ روز پیش</div>
+        </a>
+
+        <div style="text-align:center; padding: 20px 0;">
+          <button class="btn-ghost" style="padding: 12px 32px; font-size: 0.92rem;">مشاهده همه آگهی‌ها ←</button>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <div class="sidebar-card">
+          <div class="sidebar-title">فیلتر نوع قرارداد</div>
+          <div class="filter-group">
+            <label class="filter-item"><input type="checkbox" checked /> تمام‌وقت <span class="filter-count">۲۸،۴۰۰</span></label>
+            <label class="filter-item"><input type="checkbox" /> پاره‌وقت <span class="filter-count">۶،۲۰۰</span></label>
+            <label class="filter-item"><input type="checkbox" checked /> دورکاری <span class="filter-count">۱۱،۸۰۰</span></label>
+            <label class="filter-item"><input type="checkbox" /> پروژه‌ای <span class="filter-count">۴،۱۰۰</span></label>
+            <label class="filter-item"><input type="checkbox" /> کارآموزی <span class="filter-count">۲،۳۰۰</span></label>
+          </div>
+        </div>
+
+        <div class="sidebar-card">
+          <div class="sidebar-title">سطح تجربه</div>
+          <div class="filter-group">
+            <label class="filter-item"><input type="checkbox" /> تازه‌کار (Junior) <span class="filter-count">۱۴،۵۰۰</span></label>
+            <label class="filter-item"><input type="checkbox" checked /> میانی (Mid) <span class="filter-count">۱۸،۲۰۰</span></label>
+            <label class="filter-item"><input type="checkbox" /> ارشد (Senior) <span class="filter-count">۹،۳۰۰</span></label>
+          </div>
+        </div>
+
+        <div class="alert-box">
+          <div class="alert-title">🔔 هشدار شغلی بساز</div>
+          <div class="alert-sub">با وارد کردن ایمیل، آگهی‌های مطابق جستجوت برات ارسال میشه.</div>
+          <input class="alert-input" type="email" placeholder="ایمیل شما" />
+          <button class="alert-btn">ساختن هشدار</button>
+        </div>
+      </aside>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="how-bg">
+  <div class="section">
+    <div class="section-header" style="text-align:center;">
+      <div class="section-eyebrow">چطور کار می‌کند؟</div>
+      <h2 class="section-title">در ۳ قدم، شروع کن</h2>
+    </div>
+    <div class="steps-grid">
+      <div class="step">
+        <div class="step-num">۱</div>
+        <h3>رزومه بساز</h3>
+        <p>ابزار رزومه‌ساز هوشمند ما بهت کمک می‌کنه در کمتر از ۱۵ دقیقه یه رزومه حرفه‌ای بسازی.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">۲</div>
+        <h3>جستجو کن</h3>
+        <p>با فیلترهای پیشرفته — شهر، حقوق، نوع قرارداد — بهترین فرصت‌ها رو پیدا کن.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">۳</div>
+        <h3>درخواست بده</h3>
+        <p>با یه کلیک رزومه‌ات رو بفرست. وضعیت درخواست رو لحظه‌به‌لحظه دنبال کن.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">۴</div>
+        <h3>استخدام بشو</h3>
+        <p>مصاحبه‌هات رو از داخل پلتفرم مدیریت کن و آماده اولین روز کارت شو.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TOP COMPANIES -->
+<div style="border-bottom: 1px solid var(--border);">
+  <div class="section">
+    <div class="section-header">
+      <div class="section-eyebrow">شرکت‌های برتر</div>
+      <h2 class="section-title">کارفرمایانی که اینجا استخدام می‌کنند</h2>
+    </div>
+    <div class="companies-row">
+      <a href="#" class="company-chip"><div class="company-chip-logo">🦁</div><div><div class="company-chip-name">دیجی‌کالا</div><div class="company-chip-count">۱۲۴ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">🚕</div><div><div class="company-chip-name">اسنپ</div><div class="company-chip-count">۸۷ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">🍕</div><div><div class="company-chip-name">اسنپ‌فود</div><div class="company-chip-count">۶۱ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">🏦</div><div><div class="company-chip-name">بانک ملت</div><div class="company-chip-count">۴۵ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">⚡</div><div><div class="company-chip-name">چارگون</div><div class="company-chip-count">۳۸ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">🎯</div><div><div class="company-chip-name">تپسی</div><div class="company-chip-count">۳۲ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">📦</div><div><div class="company-chip-name">مپنا</div><div class="company-chip-count">۲۸ موقعیت</div></div></a>
+      <a href="#" class="company-chip"><div class="company-chip-logo">🌐</div><div><div class="company-chip-name">ایرانسل</div><div class="company-chip-count">۲۳ موقعیت</div></div></a>
+    </div>
+  </div>
+</div>
+
+<!-- EMPLOYER CTA -->
+<section class="employer-section">
+  <div class="employer-inner">
+    <div class="employer-content">
+      <div class="employer-label">برای کارفرمایان</div>
+      <h2 class="employer-title">بهترین استعدادها را سریع‌تر پیدا کنید</h2>
+      <p class="employer-sub">به بیش از ۱٫۲ میلیون متقاضی حرفه‌ای دسترسی داشته باشید. آگهی‌های شما در کمتر از ۲۴ ساعت منتشر و در معرض دید هزاران کارجوی واجد شرایط قرار می‌گیرد.</p>
+      <div class="employer-actions">
+        <button class="btn-accent">شروع رایگان کنید</button>
+        <button class="btn-outline-light">مشاهده تعرفه‌ها</button>
+      </div>
+    </div>
+    <div class="employer-features">
+      <div class="employer-feat">
+        <div class="feat-icon">🎯</div>
+        <div class="feat-text">
+          <h4>هدف‌گذاری دقیق</h4>
+          <p>آگهی شما فقط به کارجویان با تجربه و مهارت مرتبط نشان داده می‌شود.</p>
+        </div>
+      </div>
+      <div class="employer-feat">
+        <div class="feat-icon">⚡</div>
+        <div class="feat-text">
+          <h4>انتشار فوری</h4>
+          <p>در کمتر از ۱۵ دقیقه آگهی خود را ثبت و منتشر کنید.</p>
+        </div>
+      </div>
+      <div class="employer-feat">
+        <div class="feat-icon">📊</div>
+        <div class="feat-text">
+          <h4>داشبورد تحلیلی</h4>
+          <p>تعداد بازدیدها، درخواست‌ها و نرخ تبدیل را لحظه‌به‌لحظه رصد کنید.</p>
+        </div>
+      </div>
+      <div class="employer-feat">
+        <div class="feat-icon">🤝</div>
+        <div class="feat-text">
+          <h4>پشتیبانی اختصاصی</h4>
+          <p>تیم متخصص ما در تمام مراحل استخدام همراه شماست.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <span class="footer-logo">کاری<span>جاب</span></span>
+        <p class="footer-desc">پلتفرم کاریابی و استخدامی کاری‌جاب — پل میان استعداد ایرانی و فرصت‌های شغلی برتر از سال ۱۳۹۸.</p>
+      </div>
+      <div class="footer-col">
+        <h5>کارجویان</h5>
+        <ul class="footer-links">
+          <li><a href="#">جستجوی شغل</a></li>
+          <li><a href="#">رزومه‌ساز</a></li>
+          <li><a href="#">آموزش مصاحبه</a></li>
+          <li><a href="#">راهنمای حقوق</a></li>
+          <li><a href="#">هشدار شغلی</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>کارفرمایان</h5>
+        <ul class="footer-links">
+          <li><a href="#">ثبت آگهی</a></li>
+          <li><a href="#">جستجو در رزومه‌ها</a></li>
+          <li><a href="#">بسته‌های اشتراک</a></li>
+          <li><a href="#">راه‌حل‌های HR</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>شرکت</h5>
+        <ul class="footer-links">
+          <li><a href="#">درباره ما</a></li>
+          <li><a href="#">وبلاگ</a></li>
+          <li><a href="#">تماس</a></li>
+          <li><a href="#">حریم خصوصی</a></li>
+          <li><a href="#">شرایط استفاده</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© ۱۴۰۳ کاری‌جاب. تمامی حقوق محفوظ است.</span>
+      <span>ساخته‌شده با ❤️ در ایران</span>
+    </div>
+  </div>
+</footer>
